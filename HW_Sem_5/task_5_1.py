@@ -32,12 +32,13 @@ def f_rnd(num):
     if not num.isnumeric():
         print("The data is incorrect")
         return ''
-        
+
     ls = ''
     for i in range(int(num)):
         x = 'абв'
         ls += ''.join(random.sample(x, len(x))) + ' '
     return ls
+
 
 def ls_new(ls):
     return ls.replace('абв ', '')
