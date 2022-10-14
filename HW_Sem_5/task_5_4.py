@@ -9,14 +9,14 @@
 from random import shuffle, randint
 
 
-def bot_run(count):# Игрок бот
+def bot_run(count):  # Игрок бот
     result = count % 29
     if not result:
         result = randint(1, 28)
     return result
 
 
-def players_run(play):# Игрок человек
+def players_run(play):  # Игрок человек
     while play:
         result = input(f"{play}, возьмете конфеты [1 .. 28]: ")
         if not result.isnumeric():
@@ -28,12 +28,12 @@ def players_run(play):# Игрок человек
         return int(result)
 
 
-def out_message(play, count, value): # блок вывода сообщений
+def out_message(play, count, value):  # блок вывода сообщений
     print(
         f"\n{play} взял {count} шт.; всего конфет осталось {value} шт.")
 
 
-def game_mode(msg):# Выбор игроков
+def game_mode(msg):  # Выбор игроков
     players = ['Игрок_1', 'bot' if (input(msg)) else 'Игрок_2']
     print(
         f'\nУчастники: {players[0]} и {players[1]}\nПереходим к жеребьевке:\n')
@@ -44,8 +44,8 @@ def game_mode(msg):# Выбор игроков
 
 def game_candies(mode):
 
-    players = game_mode(mode) # Выбор с кем играем
-    candies = 2021 # Количество конфет изначально!!!
+    players = game_mode(mode)  # Выбор с кем играем
+    candies = 2021  # Количество конфет изначально!!!
     #candies = 141
     count_max = 28
     index = 0
@@ -59,7 +59,7 @@ def game_candies(mode):
 
         candies -= number_of_candies
         out_message(players[index], number_of_candies, candies)
-        index = abs(index - 1) # id игрока
+        index = abs(index - 1)  # id игрока
 
     print(
         f"\nOставшиеся конфеты:{candies} шт. забирает {players[index]} и выигрывает!!!\n")
