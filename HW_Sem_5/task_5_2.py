@@ -26,8 +26,8 @@ from os import path
 
 def f_ls_code(file, file_code):
     if path.exists(file) and path.exists(file_code):
-        with open(file) as f, \
-                open(file_code, "a") as f_codes:
+        with open(file, encoding='utf-8') as f, \
+                open(file_code, "a", encoding='utf-8') as f_codes:
 
             ls_cod = symbol = ''            
             ls = f.read()
@@ -53,7 +53,7 @@ def f_ls_code(file, file_code):
 
 def f_ls_decode(file_code):
     if path.exists(file_code):
-        with open(file_code) as f:
+        with open(file_code, encoding='utf-8') as f:
             ls_decode = count = ''
             ls = f.read()
             for simbol in ls:
